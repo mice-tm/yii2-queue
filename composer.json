@@ -1,0 +1,32 @@
+{
+  "name": "mice-tm/yii2-queue",
+  "type": "yii2-extension",
+  "description": "Package base on yii2-queue with some improvements",
+  "keywords": ["queue", "yii2", "delayed queue", "amqp"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Iryna Mychkova",
+      "email": "imychkova@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "mice-tm\\yii2-queue\\": "src/yii2-queue"
+    }
+  },
+  "require": {
+    "php": ">=7.0.0",
+    "yiisoft/yii2": "^2.0.6",
+    "yiisoft/yii2-queue": "^2.0"
+  },
+  "config": {
+    "fxp-asset": {
+      "installer-paths": {
+        "npm-asset-library": "vendor/npm",
+        "bower-asset-library": "vendor/bower"
+      }
+    },
+    "process-timeout": 1800
+  }
+}
