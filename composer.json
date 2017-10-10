@@ -18,14 +18,11 @@
   "require": {
     "php": ">=7.0.0",
     "yiisoft/yii2": "^2.0.6",
-    "yiisoft/yii2-queue": "^2.0"
-  },
-  "require-dev": {
-    "php-amqplib/php-amqplib": "*"
+    "yiisoft/yii2-queue": "^2.0",
+    "php-amqplib/php-amqplib": "~2.0"
   },
   "suggest": {
-    "ext-pcntl": "Need for process signals.",
-    "php-amqplib/php-amqplib": "Need for AMQP queue."
+    "ext-pcntl": "Need for process signals."
   },
   "config": {
     "fxp-asset": {
