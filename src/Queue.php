@@ -14,6 +14,7 @@ class Queue extends BaseQueue
     public $exclusive = false;
     public $auto_delete = false;
     public $exchangeType = 'direct';
+    public $delay = false;
 
     /**
      * @return bool
@@ -89,6 +90,11 @@ class Queue extends BaseQueue
         $no_wait = false,
         $arguments = []
     ) {
+        if ($this->delay) {
+            $arguments = array_merge($arguments, [
+                'expires' => array('I', $this->delay*1000),
+            ]);
+        }
         return $this->channel->queue_declare(
             $queueName,
             $passive,
