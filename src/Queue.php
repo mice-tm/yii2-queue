@@ -92,7 +92,7 @@ class Queue extends BaseQueue
     ) {
         if ($this->delay) {
             $arguments = array_merge($arguments, [
-                'expires' => array('I', $this->delay*1000),
+                'x-expires' => array('I', $this->delay*1000),
             ]);
         }
         return $this->channel->queue_declare(
