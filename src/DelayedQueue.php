@@ -3,7 +3,7 @@
 namespace micetm\queue;
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
-use common\components\amqp\Queue as BaseQueue;
+use micetm\queue\Queue as BaseQueue;
 use PhpAmqpLib\Message\AMQPMessage;
 
 /**
