@@ -12,13 +12,20 @@
   ],
   "autoload": {
     "psr-4": {
-      "mice-tm\\yii2-queue\\": "src/yii2-queue"
+      "micetm\\queue\\": "src"
     }
   },
   "require": {
     "php": ">=7.0.0",
     "yiisoft/yii2": "^2.0.6",
     "yiisoft/yii2-queue": "^2.0"
+  },
+  "require-dev": {
+    "php-amqplib/php-amqplib": "*"
+  },
+  "suggest": {
+    "ext-pcntl": "Need for process signals.",
+    "php-amqplib/php-amqplib": "Need for AMQP queue."
   },
   "config": {
     "fxp-asset": {

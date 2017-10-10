@@ -14,19 +14,22 @@ Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
-Either run
+Update composer.json
+1) add to the require section of your `composer.json` file,
 
 ```
-php composer.phar require --prefer-dist mice-tm/yii2-queue
+"mice-tm/yii2-queue": "dev-master"
 ```
 
-or add
+2) then add a repositories section of your `composer.json` file.
 
 ```
-"mice-tm/yii2-queue": "*"
+{
+  "type": "vcs",
+  "url": "https://github.com/mice-tm/yii2-queue"
+}
 ```
 
-to the require section of your `composer.json` file.
 
 Basic Usage
 -----------
