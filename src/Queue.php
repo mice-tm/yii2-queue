@@ -63,7 +63,7 @@ class Queue extends BaseQueue
         $this->connection = new AMQPStreamConnection($this->host, $this->port, $this->user, $this->password);
         $this->channel = $this->connection->channel();
         $this->declareQueue($this->queueName, $this->passive, $this->durable, $this->exclusive, $this->auto_delete);
-        $this->channel->exchange_declare($this->exchangeName, $this->exchangeType, false, true, false);
+        $this->channel->exchange_declare($this->exchangeName, $this->exchangeType, $this->passive, $this->durable, $this->auto_delete);
         $this->channel->queue_bind($this->queueName, $this->exchangeName);
     }
 

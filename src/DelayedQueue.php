@@ -41,7 +41,7 @@ class DelayedQueue extends BaseQueue
         $this->connection = new AMQPStreamConnection($this->host, $this->port, $this->user, $this->password);
         $this->channel = $this->connection->channel();
 
-        $this->declareQueue($this->queueRightNow);
+        $this->declareQueue($this->queueRightNow, $this->passive, $this->durable, $this->exclusive, $this->auto_delete);
         $this->channel->exchange_declare(
             $this->exchangeRightNow,
             $this->exchangeType,
@@ -77,7 +77,7 @@ class DelayedQueue extends BaseQueue
      */
     protected function countMessages()
     {
-        $count = $this->declareQueue($this->queueRightNow);
+        $count = $this->declareQueue($this->queueRightNow, $this->passive, $this->durable, $this->exclusive, $this->auto_delete);
         if (is_array($count) && $count[0] == $this->queueName) {
             return $count[1];
         }
