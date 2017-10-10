@@ -45,9 +45,9 @@ class DelayedQueue extends BaseQueue
         $this->channel->exchange_declare(
             $this->exchangeRightNow,
             $this->exchangeType,
-            false,
-            true,
-            false
+            $this->passive,
+            $this->durable,
+            $this->auto_delete
         );
         $this->channel->queue_bind($this->queueRightNow, $this->exchangeRightNow);
 
@@ -55,9 +55,9 @@ class DelayedQueue extends BaseQueue
         $this->channel->exchange_declare(
             $this->exchangeName,
             $this->exchangeType,
-            false,
-            true,
-            false
+            $this->passive,
+            $this->durable,
+            $this->auto_delete
         );
         $this->channel->queue_bind($this->queueName, $this->exchangeName);
     }
