@@ -62,15 +62,6 @@ class DelayedQueue extends BaseQueue
         $this->channel->queue_bind($this->queueName, $this->exchangeName);
     }
 
-    protected function getArguments()
-    {
-        if (empty($this->isDelayed)) {
-            return [];
-        }
-
-        return array("x-delayed-type" => [ 'S', $this->exchangeType]);
-    }
-
     /**
      * Returns messages amount in target queue
      * @return int
@@ -109,12 +100,11 @@ class DelayedQueue extends BaseQueue
      */
     protected function declareDelayedQueue()
     {
-
         /**
          * x-message-ttl delay in seconds to milliseconds
          * x-dead-letter-exchange after message expiration in delay queue, move message to the right.now.queue
          */
-        return $this->channel->queue_declare(
+        return $this->declareQueue(
             $this->queueName,
             $this->passive,
             $this->durable,
@@ -124,8 +114,7 @@ class DelayedQueue extends BaseQueue
             array(
                 'x-message-ttl' => array('I', $this->delay*1000),
                 'x-dead-letter-exchange' => array('S', $this->exchangeRightNow)
-            )
-        );
+            ));
     }
 
     /**
