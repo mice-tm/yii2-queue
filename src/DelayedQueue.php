@@ -112,7 +112,7 @@ class DelayedQueue extends BaseQueue
             $this->auto_delete,
             $this->no_wait,
             array(
-                'x-message-ttl' => array('I', $this->delay*1000),
+                'x-message-ttl' => array('l', $this->delay*1000),
                 'x-dead-letter-exchange' => array('S', $this->exchangeRightNow)
             ));
     }
