@@ -25,12 +25,6 @@
     "ext-pcntl": "Need for process signals."
   },
   "config": {
-    "fxp-asset": {
-      "installer-paths": {
-        "npm-asset-library": "vendor/npm",
-        "bower-asset-library": "vendor/bower"
-      }
-    },
     "process-timeout": 1800
   }
 }
