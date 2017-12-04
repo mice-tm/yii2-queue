@@ -7,7 +7,7 @@ It supported queues based on **DB**, **Redis**, **RabbitMQ**, **Beanstalk** and 
 
 Added delayed queue support for AMQP and health-checks for queues
 
-Parent documentation is at [docs/guide/README.md](docs/guide/README.md).
+Fork of [https://github.com/yiisoft/yii2-queue](https://github.com/yiisoft/yii2-queue)
 
 Installation
 ------------
@@ -99,5 +99,3 @@ Yii::$app->queue->isReserved($id);
 // Worker has executed the job.
 Yii::$app->queue->isDone($id);
 ```
-
-For more details see [the guide](docs/guide/README.md).
